@@ -168,6 +168,10 @@ static const CGFloat VENTokenFieldDefaultMaxHeight          = 150.0;
     return self.inputTextField.text;
 }
 
+- (CGSize)intrinsicContentSize {
+    return CGSizeMake(self.width, self.height);
+}
+
 
 #pragma mark - View Layout
 
@@ -385,6 +389,7 @@ static const CGFloat VENTokenFieldDefaultMaxHeight          = 150.0;
             [self setHeight:self.originalHeight];
         }
     }
+    [self invalidateIntrinsicContentSize];
 }
 
 - (VENBackspaceTextField *)inputTextField
