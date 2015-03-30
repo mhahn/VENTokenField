@@ -68,6 +68,11 @@
 @property (strong, nonatomic) NSString *toLabelText;
 @property (strong, nonatomic) UIColor *inputTextFieldTextColor;
 
+@property (strong, nonatomic) UIColor *tokenTextColor;
+@property (strong, nonatomic) UIColor *tokenBackgroundColor;
+@property (strong, nonatomic) UIColor *tokenHighlightedTextColor;
+@property (strong, nonatomic) UIColor *tokenHighlightedBackgroundColor;
+
 @property (strong, nonatomic) UILabel *toLabel;
 
 @property (copy, nonatomic) NSString *placeholderText;

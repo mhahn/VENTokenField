@@ -52,6 +52,9 @@
 {
     self.titleLabel.text = text;
     self.titleLabel.textColor = self.colorScheme;
+    if (self.textColor != nil) {
+        self.titleLabel.textColor = self.textColor;
+    }
     [self.titleLabel sizeToFit];
     self.frame = CGRectMake(CGRectGetMinX(self.frame), CGRectGetMinY(self.frame), CGRectGetMaxX(self.titleLabel.frame) + 3, CGRectGetHeight(self.frame));
     [self.titleLabel sizeToFit];
@@ -60,8 +63,22 @@
 - (void)setHighlighted:(BOOL)highlighted
 {
     _highlighted = highlighted;
+    
+    // Default to colorScheme, but prefer more granular settings
     UIColor *textColor = highlighted ? [UIColor whiteColor] : self.colorScheme;
+    if (highlighted && self.highlightedTextColor != nil) {
+        textColor = self.highlightedTextColor;
+    } else if (self.textColor != nil) {
+        textColor = self.textColor;
+    }
+    
     UIColor *backgroundColor = highlighted ? self.colorScheme : [UIColor clearColor];
+    if (highlighted && self.highlightedBackgroundColor != nil) {
+        backgroundColor = self.highlightedBackgroundColor;
+    } else if (self.backgroundColor != nil) {
+        backgroundColor = self.backgroundColor;
+    }
+    
     self.titleLabel.textColor = textColor;
     self.backgroundView.backgroundColor = backgroundColor;
 }
