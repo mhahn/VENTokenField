@@ -54,6 +54,9 @@
 - (void)setTitleText:(NSString *)text
 {
     self.titleLabel.text = text;
+    if (self.font != nil) {
+        self.titleLabel.font = self.font;
+    }
     self.titleLabel.textColor = self.colorScheme;
     if (self.textColor != nil) {
         self.titleLabel.textColor = self.textColor;
